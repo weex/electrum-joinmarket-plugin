@@ -16,29 +16,27 @@ Donations for this plugin work gratefully received at 1B6Qiz2aZckduhZbMRvUNAfxSV
 
 ===
 
-## Installation
+## Quick Installation
 
 (Assumes Linux, may work on Mac/Windows in some cases, but there is no binary yet)
 
-##### Quick version 
+1. Download the binary [release](https://github.com/AdamISZ/joinmarket-clientserver/releases) of joinmarketd, put it anywhere and run `./joinmarketd` (serves default port 27183)
 
-1. Download the binary [release](https://github.com/AdamISZ/joinmarket-clientserver/releases)
- of joinmarketd, put it anywhere and run `./joinmarketd` (serves default port 27183)
+Note that this binary knows nothing about Bitcoin :) It just sends messages back and forth to (currently) IRC, and handles encryption.
 
- Note that this binary knows nothing about Bitcoin :) It just sends messages back and forth to (currently) IRC, and handles encryption.
-
-2. Download the customised Electrum [release](https://github.com/AdamISZ/electrum-joinmarket-plugin/releases)
- from this repo. Then follow the instructions as for normal Electrum installation:
+2. Download the customised Electrum [release](https://github.com/AdamISZ/electrum-joinmarket-plugin/releases) from this repo. Then follow the instructions as for normal Electrum installation:
  
-    `sudo apt-get install python-qt4 python-pip`
-    `tar xvf <Electrum-name>.tar.gz; cd <Electrum-name>`
-    `python electrum`
+```
+sudo apt-get install python-qt4 python-pip
+tar xvf <Electrum-name>.tar.gz; cd <Electrum-name>
+python electrum
+```
 
 To avoid sudo, see the note at the bottom.
 
 Activate the Joinmarket plugin from Tools->Plugins and the tab should pop up.
 
-##### From-source version
+## Installation from Source
 
 1. Make a virtualenv to work in.
 
@@ -49,12 +47,14 @@ Activate the Joinmarket plugin from Tools->Plugins and the tab should pop up.
  
 3. Install and run joinmarketd from the joinmarket-clientserver repo:
 
-     `git clone https://github.com/AdamISZ/joinmarket-clientserver`
-     `cd joinmarket-clientserver`
-     `python setupall.py --daemon`
-     `python setupall.py --client-only`
-     `cd scripts`
-     `python joinmarketd.py`
+```
+git clone https://github.com/AdamISZ/joinmarket-clientserver
+cd joinmarket-clientserver
+python setupall.py --daemon
+python setupall.py --client-only
+cd scripts
+python joinmarketd.py
+```
  
  (Leave the daemon running, preferably in foreground until logging is set up, that's a TODO).
 
@@ -68,8 +68,10 @@ Activate the Joinmarket plugin from Tools->Plugins and the tab should pop up.
  
 4. Copy the `joinmarket` folder from this repo into the Electrum installation:
  
-    `cd electrum-joinmarket-plugin`
-    `cp -r joinmarket <virtualenvdir>/lib/python2.7/site-packages/electrum_plugins/.`
+```
+cd electrum-joinmarket-plugin
+cp -r joinmarket <virtualenvdir>/lib/python2.7/site-packages/electrum_plugins/.
+```
   
  or put it into system dist-packages if you're not using virtualenv.
  
